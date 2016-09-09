@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+    <form>
+        <div style="margin-left: 20px;">
+            <h1>File Uploader</h1>
+            <!-- <p>
+                <strong>SAS URI</strong>: 
+                <br/>
+                <span class="input-control text">
+                    <input type="text" id="sasUrl" style="width: 50%"
+                           value=""/>
+                </span>
+            </p> -->
+            <p>
+                <strong>File To Upload</strong>: 
+                <br/>
+                <span class="input-control text">
+                    <input type="file" id="file" name="file" style="width: 50%"/>
+                </span>
+            </p>
+            <div id="output">
+                 
+                <strong>File Properties:</strong>
+                <br/>
+                <p>
+                    Name: <span id="fileName"></span>
+                </p>
+                <p>
+                    File Size: <span id="fileSize"></span> bytes.
+                </p>
+                <p>
+                    File Type: <span id="fileType"></span>
+                </p>
+                <p>
+                    <input id="upload" type="button" value="Upload File"/>
+                </p>
+                <p>
+                    <strong>Progress</strong>: <span id="fileUploadProgress">0.00 %</span>
+                </p>
+            </div>
+        </div>
+        <div>
+        </div>
+    </form>
+</body>
+<script type="text/javascript" src="../lib/assets/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="../lib/assets/vendor/lodash.compat.min.js"></script>
+<!-- <script type="text/javascript" src="../dist/azure-media-sdk.min.js"></script> -->
+<script type="text/javascript" data-main='/lib/assets/src/config' src="/lib/assets/vendor/require.js"></script>
+<script type="text/javascript">
+  require(['main'])
+  // , function (AzureMedia) {
+  //   var ready = function () {
+      // sdk.asset.makeAsset({
+      //   name: 'test'
+      // }, function () {})
+      
+      // sdk.assetFile.makeAssetsFile({
+      //   Id: 'nb:cid:UUID:ece6b69a-d5d6-4424-b3a3-161ad528269b',
+      //   Name: 'test_video_1.mp4'
+      // }, function (res) {
+      //   debugger
+      // })
+      
+      // sdk.accessPolicy.defineAccessPolicy({
+      //    name: 'test_access_policy',
+      //    duration: 440,
+      //    permissions: 2
+      // })
+      // nb:pid:UUID:eb0b4224-5b62-4c27-9665-914d8616c0f7
+
+      // sdk.locator.makeSASLocator({
+      //   Type: 1,
+      //   AssetId: 'nb:cid:UUID:ece6b69a-d5d6-4424-b3a3-161ad528269b',
+      //   AccessPolicyId: 'nb:pid:UUID:eb0b4224-5b62-4c27-9665-914d8616c0f7'
+      // })
+      // {"d":{"__metadata":{"id":"https://wamsos1clus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Ac4542e24-2fb9-4b31-a7cc-ce53f381001c')","uri":"https://wamsos1clus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Ac4542e24-2fb9-4b31-a7cc-ce53f381001c')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Locator"},"AccessPolicy":{"__deferred":{"uri":"https://wamsos1clus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Ac4542e24-2fb9-4b31-a7cc-ce53f381001c')/AccessPolicy"}},"Asset":{"__deferred":{"uri":"https://wamsos1clus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Ac4542e24-2fb9-4b31-a7cc-ce53f381001c')/Asset"}},"Id":"nb:lid:UUID:c4542e24-2fb9-4b31-a7cc-ce53f381001c","ExpirationDateTime":"\/Date(1473268650403)\/","Type":1,"Path":"https://mediasvcwgrrtp3lj13k1.blob.core.windows.net/asset-ece6b69a-d5d6-4424-b3a3-161ad528269b?sv=2012-02-12&sr=c&si=c4542e24-2fb9-4b31-a7cc-ce53f381001c&sig=QvbrI4y4okiieUTT0xj9QXfNXzDcmMrYqEtAL17K2NA%3D&se=2016-09-07T17%3A17%3A30Z","BaseUri":"https://mediasvcwgrrtp3lj13k1.blob.core.windows.net/asset-ece6b69a-d5d6-4424-b3a3-161ad528269b","ContentAccessComponent":"?sv=2012-02-12&sr=c&si=c4542e24-2fb9-4b31-a7cc-ce53f381001c&sig=QvbrI4y4okiieUTT0xj9QXfNXzDcmMrYqEtAL17K2NA%3D&se=2016-09-07T17%3A17%3A30Z","AccessPolicyId":"nb:pid:UUID:eb0b4224-5b62-4c27-9665-914d8616c0f7","AssetId":"nb:cid:UUID:ece6b69a-d5d6-4424-b3a3-161ad528269b","StartTime":null,"Name":null}}
+    // }
+
+    // var sdk = new AzureMedia({
+    //   client_id: 'snackk',
+    //   client_secret: 'WpT/bLM3BQIQtRpdT5ai0n6TPaScl155lm6jgdlV2rw=',
+    //   onReady: ready
+    // })
+
+    // ready()
+
+    // $("#output").hide()
+    // $("#file").bind('change', handleFileSelect)
+    // if (window.File && window.FileReader && window.FileList && window.Blob) {
+    //     // Great success! All the File APIs are supported.
+    // } else {
+    //     alert('The File APIs are not fully supported in this browser.');
+    // }
+
+    // sdk.getToken()
+  // })
+
+</script>
+</html>
