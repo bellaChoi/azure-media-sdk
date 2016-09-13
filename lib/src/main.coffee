@@ -1,7 +1,8 @@
 require ['sdk', 'blob'], (AzureMedia, Blob) ->
   $("#output").hide()
+
   $("#file").bind 'change', (e) ->
-    result = Blob.handleFile(e, 'https://mediasvcwgrrtp3lj13k1.blob.core.windows.net/asset-be52e13b-2da7-449c-9f87-5c915fe54f0d?sv=2012-02-12&sr=c&si=83bb931e-ab9c-449a-96ef-0fabb82ec480&sig=3zV%2BeBSzMuveHXzCw8j3K%2FM2TyZ4D4WVrEA8POAidmk%3D&se=2016-09-08T18%3A50%3A40Z')
+    result = Blob.handleFile(e, 'https://snackkmediastorage.blob.core.windows.net/asset-cb4be16c-b16f-4a84-8cb9-c67399f6617d?sv=2012-02-12&sr=c&si=72ea02aa-4b27-4f7f-ae96-fd7e16471c4b&sig=qpeC6M3hnowoR%2FZ1Izz%2Ft09kiFQoA1b0%2BHrR0rzcxCc%3D&se=2016-09-13T10%3A03%3A59Z')
     $("#output").show()
     $("#fileName").text result.name
     $("#fileSize").text result.size
@@ -16,37 +17,47 @@ require ['sdk', 'blob'], (AzureMedia, Blob) ->
     alert 'The File APIs are not fully supported in this browser.'
 
   sdk = new AzureMedia
-    # client_id: 'mediasvcwgrrtp3lj13k1'
-    client_id: 'snackk'
-    # client_secret: 'kTido6D6N2DKHNr3WUnww1UFq69syOVIzRa0vw9pH85K4ly2ZOWRIkxaNzkm4ZV7UyyxNhAhBhJRk7a+GEqDGw=='
-    client_secret: 'WpT/bLM3BQIQtRpdT5ai0n6TPaScl155lm6jgdlV2rw='
+    # client_id: 'snackkmediastorage'
+    client_id: 'snackkmedia'
+    # client_secret: 'yzASkrT08d2JsoG3NOiRXmo92S8DLqq8q2yQh4UlJvVd5gIRHzfv2e6EsG4lx3f/oCMnbGyJQYpZAp43f4g+7w==+GEqDGw=='
+    client_secret: 'dv1jYFvWRyOKxl+iS0tMDAlItFTqbYESMGhFT+uUoj8='
     onReady: ready
 
   ready = ->
     console.log 'ready'
+
     # sdk.asset.makeAsset
-    #   Name: 'testasset'
+    #   Name: 'snackk-asset'
+    # , (res) ->
+    #     makeAssetsFile res.d.Id
 
+    # makeAssetsFile = (id) ->
+    #   sdk.assetFile.makeAssetsFile
+    #     Name: 'snackk-assetfile'
+    #     ParentAssetId: id
+    #   , (res) ->
+    #       # res.d.Id
+    #       defineAccessPolicy id
 
-    # sdk.assetFile.makeAssetsFile
-    #   Name: 'testassetfile'
-    #   ParentAssetId: 'nb:cid:UUID:be52e13b-2da7-449c-9f87-5c915fe54f0d'
-    # nb:cid:UUID:561b7cc2-f641-4d04-8c85-f507b4c0a24f
-
-
-    # sdk.accessPolicy.defineAccessPolicy
-    #   Name: 'test_access_policy'
-    #   DurationInMinutes: 440
-    #   Permissions: 2
-    # nb:pid:UUID:ffef90fa-0ed1-4c79-8e64-0ee2f854b365
-
-
-
-    # sdk.locator.makeSASLocator
-    #   Type: 1
-    #   AssetId: 'nb:cid:UUID:be52e13b-2da7-449c-9f87-5c915fe54f0d'
-    #   AccessPolicyId: 'nb:pid:UUID:ffef90fa-0ed1-4c79-8e64-0ee2f854b365'
-    # https://mediasvcwgrrtp3lj13k1.blob.core.windows.net/asset-be52e13b-2da7-449c-9f87-5c915fe54f0d?sv=2012-02-12&sr=c&si=83bb931e-ab9c-449a-96ef-0fabb82ec480&sig=3zV%2BeBSzMuveHXzCw8j3K%2FM2TyZ4D4WVrEA8POAidmk%3D&se=2016-09-08T18%3A50%3A40Z
+    # defineAccessPolicy = (id) ->
+    #   sdk.accessPolicy.defineAccessPolicy
+    #     Name: 'snackk-access-policy'
+    #     DurationInMinutes: 440
+    #     Permissions: 2
+    #   , (res) ->
+    #       sdk.locator.makeSASLocator
+    #         Type: 1
+    #         AssetId: id
+    #         AccessPolicyId: res.d.Id
+    #       , (data) ->
+    #           $("#file").bind 'change', (e) ->
+    #             result = Blob.handleFile(e, data.d.Path)
+    #             $("#output").show()
+    #             $("#fileName").text result.name
+    #             $("#fileSize").text result.size
+    #             $("#fileType").text result.type
+            
+          
 
 
     # sdk.locator.reqcyId: 'nb:pid:UUID:5c34c944-6106-4bff-a929-b26ca448dffe'

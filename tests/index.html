@@ -48,10 +48,25 @@
     </form>
 </body>
 <script type="text/javascript" src="../lib/assets/vendor/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="http://crypto-js.googlecode.com/files/2.0.0-crypto-sha256.js"></script>  
+<script type="text/javascript" src="http://crypto-js.googlecode.com/files/2.0.0-hmac.min.js"></script>   -->
 <script type="text/javascript" src="../lib/assets/vendor/lodash.compat.min.js"></script>
 <!-- <script type="text/javascript" src="../dist/azure-media-sdk.min.js"></script> -->
 <script type="text/javascript" data-main='/lib/assets/src/config' src="/lib/assets/vendor/require.js"></script>
 <script type="text/javascript">
+  // Date.prototype.toIso8061 = function() {  
+  //    var d = this;  
+  //    function p(i) { return ("0"  + i).slice(-2); }  
+  //    return "yyyy-MM-ddThh:mm:ssZ"  
+  //       .replace(/yyyy/, d.getUTCFullYear())  
+  //       .replace(/MM/, p(d.getUTCMonth()))  
+  //       .replace(/dd/, p(d.getUTCDay()))  
+  //       .replace(/hh/, p(d.getUTCHours()))  
+  //       .replace(/mm/, p(d.getUTCMinutes()))  
+  //       .replace(/ss/, p(d.getUTCSeconds()));  
+  // };  
+
+
   require(['main'])
   // , function (AzureMedia) {
   //   var ready = function () {

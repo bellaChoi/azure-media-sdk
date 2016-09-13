@@ -8,6 +8,7 @@ define [
   _
   utils
   token
+
 ) ->
   # Each file will be split in 256 KB
   _maxBlockSize = 256 * 1024
@@ -45,6 +46,8 @@ define [
 
       baseUrl = sas
 
+      _submitUri = baseUrl + '/' + _selectedFile.name
+
       indexOfQueryStart = baseUrl.indexOf("?")
       _submitUri = baseUrl.substring(0, indexOfQueryStart) + '/' + _selectedFile.name + baseUrl.substring(indexOfQueryStart)
       console.log _submitUri
@@ -65,14 +68,26 @@ define [
         if (evt.target.readyState is FileReader.DONE)
           uri = "#{_submitUri}&comp=block&blockid=#{_blockIds[_blockIds.length - 1]}"
           requestData = new Uint8Array(evt.target.result)
+
+          # $.ajax
+          #   url: 'http://127.0.0.1:3000/sas'
+          #   type: 'POST'
+          #   data:
+          #     blob: _selectedFile.name
+          #     # url: 'https://snackkmediastorage.blob.core.windows.net/snackkcontainer1/snackkmediastorage'
+          #     # name: 'snackkmediastorage'
+          #     # key: 'yzASkrT08d2JsoG3NOiRXmo92S8DLqq8q2yQh4UlJvVd5gIRHzfv2e6EsG4lx3f/oCMnbGyJQYpZAp43f4g+7w==+GEqDGw=='
+          #   success: (res) ->
+          #   error: (err) ->
+          #     debugger
           $.ajax
             url: uri
             type: "PUT"
             data: requestData
             processData: false
             headers: 
-              'Authorization': "Bearer #{token.get().access_token}"
-              'x-ms-version': '2013-08-15'
+              # 'Authorization': "SharedAccessSignature #{res.result}"
+              'x-ms-version': '2015-02-17'
               'Content-Length': requestData.length
               'x-ms-blob-type': 'BlockBlob'
               
@@ -89,6 +104,8 @@ define [
             error: (xhr, desc, err) ->
               console.log desc
               console.log err
+
+
      
 
     uploadFileInBlocks: (reader) ->
@@ -128,8 +145,8 @@ define [
           url: uri,
           type: "PUT",
           headers: 
-            'Authorization': "Bearer #{token.get().access_token}"
-            'x-ms-version': '2013-08-15'
+            'Authorization': "SharedAccessSignature sr=https%3A%2F%2Fsnackkmediastorage.blob.core.windows.net%2Fsnackkcontainer1%2Fsnackkmediastorage&sig=QtratiNPH7eds%2F5qSp1thL14MMqcZF5BliP0%2FwL9T9c%3D&se=1473421481.915&skn=snackkmediastorage"
+            'x-ms-version': '2015-02-17'
             'Content-Length': requestBody.length
             'x-ms-blob-content-type': _selectedFile.type
           data: requestBody

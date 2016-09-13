@@ -17,7 +17,7 @@ define [
           'Content-Type': 'application/json;odata=verbose'
           'Accept': 'application/json;odata=verbose'
           'Authorization': "Bearer #{token.get().access_token}"
-          'x-ms-version': '2.11'
+          'x-ms-version': '2.5'
           'DataServiceVersion': '3.0'
           'MaxDataServiceVersion': '3.0'
         success: (data, status) ->
