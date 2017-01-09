@@ -1,0 +1,36 @@
+{
+  "name": "azure-media-sdk",
+  "version": "1.0.0",
+  "description": "javascript based azure media sdk for client side",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bellaChoi/azure-media-sdk.git"
+  },
+  "keywords": [
+    "azure"
+  ],
+  "author": "believe1hw@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bellaChoi/azure-media-sdk/issues"
+  },
+  "homepage": "https://github.com/bellaChoi/azure-media-sdk#readme",
+  "devDependencies": {
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-requirejs": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "matchdep": "^1.0.1",
+    "nodemon": "^1.10.2",
+    "grunt-nodemon": "^0.4.2"
+  },
+  "dependencies": {
+    "node-ams-sdk": "^0.2.2"
+  }
+}
